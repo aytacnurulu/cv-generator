@@ -1,0 +1,204 @@
+/* ── Empty state ────────────────────────────────────── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
+  min-height: 300px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.emptyIcon {
+  font-size: 2.5rem;
+}
+
+/* ── Resume card ─────────────────────────────────────── */
+.previewPanel {
+  position: sticky;
+  top: 2rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.downloadButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 148px;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.22);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.downloadButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.28);
+}
+
+.resume {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 2.25rem 2.5rem;
+  font-family: "Georgia", serif;
+  color: #1e293b;
+  display: grid;
+  gap: 0;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+  border-bottom: 3px solid #1e3a5f;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.name {
+  margin: 0 0 0.4rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.25rem;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: #475569;
+}
+
+.contact span::before {
+  content: "";
+}
+
+/* ── Section ─────────────────────────────────────────── */
+.section {
+  margin-bottom: 1.25rem;
+}
+
+.sectionTitle {
+  margin: 0 0 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #3b82f6;
+  border-bottom: 1.5px solid #e2e8f0;
+  padding-bottom: 0.25rem;
+}
+
+/* ── Summary ─────────────────────────────────────────── */
+.summary {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: #334155;
+}
+
+/* ── Entry (experience / education / project) ────────── */
+.entry {
+  margin-bottom: 0.85rem;
+}
+
+.entryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.entryTitle {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.entryDate {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.entrySubtitle {
+  display: block;
+  font-size: 0.85rem;
+  color: #475569;
+  font-style: italic;
+  margin-top: 0.1rem;
+}
+
+.entryDesc {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #334155;
+}
+
+/* ── Two-column grid for skills + languages ──────────── */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+}
+
+@media (max-width: 520px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Tag chips (skills / languages) ─────────────────── */
+.tagList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: #1e40af;
+  font-weight: 500;
+}
+
+.tagLevel {
+  color: #3b82f6;
+  font-weight: 400;
+}

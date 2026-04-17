@@ -1,0 +1,25 @@
+/* ── Page shell ─────────────────────────────────────── */
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+
+  /* Two-column grid: form | preview */
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 1.75rem;
+  align-items: start;
+
+  /* Soft gradient background */
+  background: linear-gradient(135deg, #e0eeff 0%, #f0f4ff 50%, #ede9fe 100%);
+}
+
+/* ── Responsive: stack on small screens ─────────────── */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.25rem;
+  }
+}
