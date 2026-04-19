@@ -1,68 +1,92 @@
-/* ── Layout ─────────────────────────────────────────── */
+:root {
+  --bg-soft: #f7fafc;
+  --card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --line: #dbe3ee;
+  --line-strong: #c3d0e3;
+  --accent: #0f766e;
+  --accent-2: #0284c7;
+  --danger: #dc2626;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
   padding: 2rem;
-  max-width: 860px;
+  max-width: 920px;
   margin: 0 auto;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  font-family: "Manrope", "Segoe UI", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 100% 0%, #e0f2fe 0%, transparent 44%),
+    radial-gradient(circle at 0% 100%, #ccfbf1 0%, transparent 46%),
+    var(--bg-soft);
+  border-radius: 20px;
 }
 
-/* ── Section card ───────────────────────────────────── */
 .wrapper {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 1.5rem 1.75rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.2rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.2s ease;
+  gap: 0.8rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .wrapper:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+  transform: translateY(-1px);
 }
 
 .wrapper h3 {
-  margin: 0 0 0.25rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #1e293b;
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-bottom: 2px solid #3b82f6;
-  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.45rem;
 }
 
-/* ── Two-column row ─────────────────────────────────── */
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 0.9rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
+  .form {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
   .row {
     grid-template-columns: 1fr;
   }
 }
 
-/* ── Individual field ───────────────────────────────── */
 .formGroup {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
 
-.formGroup label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #475569;
+.formGroup label,
+.wrapper label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .formGroup input,
@@ -70,79 +94,121 @@
 .wrapper input,
 .wrapper textarea {
   width: 100%;
-  padding: 0.6rem 0.8rem;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: #1e293b;
-  background: #f8fafc;
+  padding: 0.62rem 0.78rem;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.94rem;
+  color: var(--text-main);
+  background: #f8fbff;
   outline: none;
+  box-sizing: border-box;
   transition:
     border-color 0.18s ease,
-    background 0.18s ease,
-    box-shadow 0.18s ease;
-  box-sizing: border-box;
+    box-shadow 0.18s ease,
+    background 0.18s ease;
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus,
 .wrapper input:focus,
 .wrapper textarea:focus {
-  border-color: #3b82f6;
+  border-color: var(--accent-2);
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.14);
 }
 
 .wrapper textarea,
 .formGroup textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 88px;
 }
 
-/* ── Labels above bare inputs inside .wrapper ─────── */
-.wrapper > label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #475569;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-top: 0.2rem;
+.wrapper p {
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: 10px;
+  color: #64748b;
+  font-size: 0.86rem;
+  background: #f8fafc;
 }
 
-/* ── Validation error ───────────────────────────────── */
+.wrapper > div {
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.wrapper > div > button[type="button"] {
+  margin-top: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background: #fff1f2;
+  color: var(--danger);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.16s ease;
+}
+
+.wrapper > div > button[type="button"]:hover {
+  background: #ffe4e6;
+}
+
+.wrapper > button[type="button"] {
+  align-self: flex-start;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid #99f6e4;
+  border-radius: 9px;
+  background: #ecfeff;
+  color: var(--accent);
+  font-size: 0.83rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.wrapper > button[type="button"]:hover {
+  background: #ccfbf1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.16);
+}
+
 .error {
   font-size: 0.78rem;
-  color: #ef4444;
-  font-weight: 500;
-  margin-top: -0.2rem;
+  color: var(--danger);
+  font-weight: 700;
 }
 
-/* ── Submit button ──────────────────────────────────── */
-.form > button[type="submit"],
-button[type="submit"] {
+.form > button[type="submit"] {
   align-self: flex-start;
-  padding: 0.7rem 2rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 2rem;
   border: none;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0f766e 0%, #0ea5a4 100%);
   color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-size: 0.94rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 10px 22px rgba(15, 118, 110, 0.28);
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease;
 }
 
-.form > button[type="submit"]:hover,
-button[type="submit"]:hover {
+.form > button[type="submit"]:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+  box-shadow: 0 14px 24px rgba(15, 118, 110, 0.34);
 }
 
-.form > button[type="submit"]:active,
-button[type="submit"]:active {
+.form > button[type="submit"]:active {
   transform: translateY(0);
 }
