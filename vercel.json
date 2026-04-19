@@ -1,6 +1,11 @@
 {
- "routes": [
- { "handle": "filesystem" },
- { "src": "/.*", "dest": "/index.html" }
- ]
+  "installCommand": "cd cv-generator && npm install",
+  "buildCommand": "cd cv-generator && npm run build",
+  "outputDirectory": "cv-generator/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
